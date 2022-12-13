@@ -8,6 +8,8 @@
 
 ## Commands:
     git clone https://github.com/lotlouischoitslab/Autonomous_Vehicles_Simulator
+
+
     npx create-react-app my-app
     
     npm install gh-pages --save-dev --force 
