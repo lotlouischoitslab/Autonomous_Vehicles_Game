@@ -4,16 +4,51 @@ class Car{
         this.y = y; //y-coordinate
         this.width = width; //car width coordinate
         this.height = height; //car height coordinate
+        
+        this.velocity = 0; //car speed
+        this.acceleration = 0.2; //car acceleration
+        this.maxVelocity = 3; //car max speed
+        this.friction=0.05; //friction
+
         this.controls = new Controls(); //car controls
     }
 
     update() {
         if(this.controls.forward){
-            this.y -=2;
+            this.velocity +=this.acceleration;
         }
         if (this.controls.reverse){
-            this.y+=2;
+            this.velocity -=this.acceleration;
         }
+
+        if(this.velocity > this.maxVelocity) {
+            this.velocity = this.maxVelocity;
+        }
+
+        if (this.velocity < -this.maxVelocity/2) {
+            this.velocity = -this.maxVelocity/2;
+        }
+
+        if(this.velocity > 0) {
+            this.velocity -=this.friction;
+        }
+        if(this.velocity < 0) {
+            this.velocity += this.friction;
+        }
+
+        if (Math.abs(this.velocity)<this.friction) {
+            this.velocity = 0;
+        }
+
+        if (this.controls.left) {
+            this.x-=2;
+        }
+
+        if (this.controls.right) {
+            this.x+=2;
+        }
+
+        this.y-=this.velocity;
     }
 
     draw(context) { //draw function
