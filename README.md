@@ -1,4 +1,4 @@
-# Autonomous Vehicles Simulator
+# Autonomous Vehicles Game
 
 ## Contributors:
 - ### Louis Sungwoo Cho (조성우)
